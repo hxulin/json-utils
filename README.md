@@ -27,13 +27,12 @@ public void test1() {
 ```
 输出：
 
-```
 test1 - JSON动态过滤方案一:[方法传参] - {"id":1,"name":"hxulin","password":"123456"}
 
 test1 - JSON动态过滤方案二:[注解传参] - {"id":1,"name":"hxulin","password":"123456"}
-```
 
 ### Example2
+
 ```java
 @SerializeField(type = User.class, include = {"name", "id", "addresses"})
 @MultiSerializeField(type = Address.class, exclude = "user")
@@ -60,11 +59,9 @@ public void test2() {
 ```
 输出：
 
-```
 test2 - JSON动态过滤方案一:[方法传参] - {"addresses":[{"home":"hxulin's home","school":"hxulin's school"},{"home":"hxulin's home2","school":"hxulin's school2"}],"id":1,"name":"hxulin"}
 
 test2 - JSON动态过滤方案二:[注解传参] - {"addresses":[{"home":"hxulin's home","school":"hxulin's school"},{"home":"hxulin's home2","school":"hxulin's school2"}],"id":1,"name":"hxulin"}
-```
 
 ### Example3
 
@@ -94,13 +91,12 @@ public void test3() {
 ```
 输出：
 
-```
 test3 - JSON动态过滤方案一:[方法传参] - {"home":"hxulin's home","school":"hxulin's school","user":{"id":1,"name":"hxulin"}}
 
 test3 - JSON动态过滤方案二:[注解传参] - {"home":"hxulin's home","school":"hxulin's school","user":{"id":1,"name":"hxulin"}}
-```
 
 ### Example4
+
 ```java
 @MoreSerializeField({
 	@SerializeField(type = Address.class, include = {"school", "home", "user"}),
@@ -129,9 +125,7 @@ public void test4() {
 ```
 输出：
 
-```
 test4 - JSON动态过滤方案一:[方法传参] - {"home":"hxulin's home","school":"hxulin's school","user":{"id":1,"name":"hxulin"}}
 
 test4 - JSON动态过滤方案二:[注解传参] - {"home":"hxulin's home","school":"hxulin's school","user":{"id":1,"name":"hxulin"}}
-```
 
